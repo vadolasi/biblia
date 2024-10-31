@@ -1,6 +1,8 @@
+# syntax=docker.io/docker/dockerfile:1.7-labs
+
 FROM oven/bun AS build
 
-COPY . /app
+COPY --exclude=nginx.conf . /app
 WORKDIR /app
 
 RUN bun i
