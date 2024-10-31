@@ -3,11 +3,13 @@ services:
     image: vadolasi/biblia:latest
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
       - "traefik.http.routers.meudevocional.rule=Host(`biblia.vitordaniel.com`)"
       - "traefik.http.services.meudevocional.loadbalancer.server.port=80"
     deploy:
       labels:
         - "traefik.enable=true"
+        - "traefik.http.routers.dashboard.entrypoints=websecure"
         - "traefik.http.routers.meudevocional.rule=Host(`biblia.vitordaniel.com`)"
         - "traefik.http.services.meudevocional.loadbalancer.server.port=80"
     networks:
